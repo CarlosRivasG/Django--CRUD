@@ -17,7 +17,7 @@
                         
                         <select id="id" name="id" >
                             {% for u in usuarios %}
-                            <option value="{{u.id}}"> {{ u.id }} </option>
+                            <option value="{{u.id}}" {% if u.id == usuario.id %} selected {% endif %}> {{ u.id }} - {{u.nombre}} </option>
                             {% endfor %}
                         </select>
                         

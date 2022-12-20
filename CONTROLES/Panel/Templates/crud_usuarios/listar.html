@@ -16,6 +16,7 @@
                 <th scope="col">Telefono</th>
                 <th scope="col">Fecha de nacimiento</th>
                 <th scope="col">Fecha de registro</th>
+                <th scope="col">Acciones</th>
             </tr>
             </thead>
         <tbody>
@@ -29,6 +30,10 @@
                 <td> {{u.telefono}} </td>
                 <td> {{u.f_nacimiento}} </td>
                 <td> {{u.f_registro}}  </td>
+                <td> 
+                    <button class="btn btn-warning" onclick="window.location.href='actualizar/{{u.id}} '"><i class="fa fa-refresh"></i></button>
+                    <button class="btn btn-danger"  onclick="window.location.href='eliminar/{{u.id}} '"><i class="fa fa-trash"></i></button>
+                </td>
             </tr>
             {%  endfor  %}
         </tbody>

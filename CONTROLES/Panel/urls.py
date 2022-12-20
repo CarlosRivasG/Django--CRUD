@@ -7,7 +7,7 @@ from . import views
 urlpatterns =  [
     path('', views.index, name="index"),
     path('listar', views.listar, name="listar"),
-    path('actualizar', views.actualizar, name="actualizar"),
+    path('actualizar/<int:idUsuarios>', views.actualizar, name="actualizar"),
     path('agregar', views.agregar, name="agregar"),
-    path('eliminar', views.eliminar, name="eliminar"),
+    path('eliminar/<int:idUsuarios>', views.eliminar, name="eliminar"),
 ]
