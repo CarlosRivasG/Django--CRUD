@@ -61,27 +61,8 @@ def actualizar(request, idUsuarios):
 
 
 
-def eliminar1(request, idUsuarios):
-    try:
-        if request.method=='POST':
-            if request.POST.get('id'):
-                id_a_borrar = request.POST.get('id')
-                tupla = Usuarios.objects.get(id = id_a_borrar)
-                tupla.delete()
-                return redirect('listar')
-        else:
-                users = Usuarios.objects.all()
-                user = Usuarios.objects.get(id = idUsuarios)
-                datos = { 'usuarios' : users, 'usuario': user}
-                return render(request,'crud_usuarios/eliminar.html', datos)
-    except Usuarios.DoesNotExist:
-                users = Usuarios.objects.all()
-                user = None
-                datos = { 'usuarios' : users, 'usuario': user}
-                return render(request,'crud_usuarios/eliminar.html', datos)
+def eliminar(request):
 
-def eliminar(request, idUsuarios):
-    try:
         if request.method=='POST':
             if request.POST.get('id'):
                 id_a_borrar = request.POST.get('id')
@@ -90,13 +71,9 @@ def eliminar(request, idUsuarios):
                 return redirect('listar')
         else:
                 users = Usuarios.objects.all()
-                user = Usuarios.objects.get(id = idUsuarios)
-                datos = { 'usuarios' : users, 'usuario': user}
+                datos = { 'usuarios' : users}
                 return render(request,'crud_usuarios/eliminar.html', datos)
-    except Usuarios.DoesNotExist:
-                users = Usuarios.objects.all()
-                user = None
-                datos = { 'usuarios' : users, 'usuario': user}
-                return render(request,'crud_usuarios/eliminar.html', datos)
+    
+
 
 
